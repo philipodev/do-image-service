@@ -3,8 +3,8 @@ import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 
 const client = new S3Client({
   credentials: {
-    accessKeyId: Bun.env.AWS_ACCESS_KEY_ID!,
-    secretAccessKey: Bun.env.AWS_SECRET_ACCESS_KEY!,
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
   },
 })
 
@@ -17,13 +17,13 @@ export const put = async (key: string, blob: Blob) => {
     headers: {
       'Content-Type': blob.type,
     },
-  }).then((res) => res.json())
+  })
 }
 
 const getS3SignedUrl = async (key: string, contentType: string) => {
   const command = new PutObjectCommand({
     Key: key,
-    Bucket: Bun.env.AWS_BUCKET_NAME,
+    Bucket: process.env.AWS_BUCKET_NAME,
     ContentType: contentType,
   })
 
