@@ -9,6 +9,12 @@ const TIMEOUT = 5000
 console.info('AWS_ACCESS_KEY_ID: ' + process.env.AWS_ACCESS_KEY_ID)
 
 const server = http.createServer((req, res) => {
+  if (req.url === '/') {
+    res.writeHead(200)
+    res.end('node ' + process.env.NODE_ID)
+    return
+  }
+
   validateImage(req, res)
     .then((key) => {
       const proxyUrl = new URL(key, `https://${process.env.CDN_HOST}`)
