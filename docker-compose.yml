@@ -6,5 +6,12 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: always
+    environment:
+      - BASE_URL=${BASE_URL}
+      - BUCKET_KEY_PREFIX=${BUCKET_KEY_PREFIX}
+      - CDN_HOST=${CDN_HOST}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_BUCKET_NAME=${AWS_BUCKET_NAME}
     ports:
       - 80:3000
