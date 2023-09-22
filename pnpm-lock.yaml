@@ -18,7 +18,7 @@ dependencies:
     version: 16.3.1
   elysia:
     specifier: ^0.6.23
-    version: 0.6.23
+    version: 0.6.23(typescript@5.2.2)
   express:
     specifier: ^4.18.2
     version: 4.18.2
@@ -32,8 +32,8 @@ dependencies:
     specifier: ^0.32.5
     version: 0.32.5
   typescript:
-    specifier: ^5.0.0
-    version: 5.0.2
+    specifier: ^5.2.2
+    version: 5.2.2
 
 devDependencies:
   bun-types:
@@ -1421,7 +1421,7 @@ packages:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: false
 
-  /elysia@0.6.23:
+  /elysia@0.6.23(typescript@5.2.2):
     resolution: {integrity: sha512-Pg4imIefGhHZsGGhfGQm6zX2fiRsN6DVoYp8gyjPQ1hvmjXBamVM5S9kAKuB6TP+E6b/KzRH+y+76PWYQpvVyQ==}
     peerDependencies:
       '@elysiajs/fn': '*'
@@ -1441,6 +1441,7 @@ packages:
       fast-querystring: 1.1.2
       memoirist: 0.1.4
       mergician: 1.1.0
+      typescript: 5.2.2
     dev: false
 
   /encodeurl@1.0.2:
@@ -2281,9 +2282,9 @@ packages:
       mime-types: 2.1.35
     dev: false
 
-  /typescript@5.0.2:
-    resolution: {integrity: sha512-wVORMBGO/FAs/++blGNeAVdbNKtIh1rbBL2EyQ1+J9lClJ93KiiKe8PmFIVdXhHcyv44SL9oglmfeSsndo0jRw==}
-    engines: {node: '>=12.20'}
+  /typescript@5.2.2:
+    resolution: {integrity: sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==}
+    engines: {node: '>=14.17'}
     hasBin: true
     dev: false
 

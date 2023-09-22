@@ -2,21 +2,21 @@ require('dotenv').config()
 
 import { validateImage } from './image/validate'
 import * as http from 'http'
+import * as https from 'https'
 
 const TIMEOUT = 5000
+
+console.info('AWS_ACCESS_KEY_ID: ' + process.env.AWS_ACCESS_KEY_ID)
 
 const server = http.createServer((req, res) => {
   validateImage(req, res)
     .then((key) => {
-      const proxyOptions = {
-        hostname: process.env.CDN_HOST,
-        port: 80,
-        path: key,
-        method: 'GET',
-      }
+      const proxyUrl = new URL(key, `https://${process.env.CDN_HOST}`)
+
+      console.info('proxyUrl', proxyUrl.toString())
 
       // Make the request to the target host
-      const proxyReq = http.request(proxyOptions, (proxyRes) => {
+      const proxyReq = https.request(proxyUrl, (proxyRes) => {
         res.writeHead(proxyRes.statusCode!, proxyRes.headers)
         proxyRes.pipe(res)
       })
