@@ -1,13 +1,10 @@
-
 version: '3.8'
 services:
-  cache:
-    image: redis:alpine
+  app:
+    image: image-service
+    build:
+      context: .
+      dockerfile: Dockerfile
     restart: always
     ports:
-      - '6379:6379'
-    volumes:
-      - cache:/data
-volumes:
-  cache:
-    driver: local
+      - 80:3000
